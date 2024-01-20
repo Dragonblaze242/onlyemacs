@@ -61,9 +61,9 @@
 ;; Ctrl + x = CUT                                                                              ;;
 (global-set-key (kbd "C-x") 'kill-region)                                                      ;;
 ;; Ctrl + z = UNDO                                                                             ;;
-(global-set-key (kbd "C-z") 'undo)                                                             ;;
+(global-set-key (kbd "C-z") 'undo-only)                                                             ;;
 ;; Ctrl + R = Redo                                                                             ;;
-(global-set-key (kbd "C-r") 'redo)                                                             ;;
+(global-set-key (kbd "C-r") 'undo-redo)                                                             ;;
 ;; Ctrl + a = SELECT ALL                                                                       ;;
 (global-set-key (kbd "C-a") 'mark-whole-buffer)                                                ;;
 ;; Ctrl + o = Open A File                                                                      ;;
