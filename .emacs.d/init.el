@@ -61,9 +61,9 @@
 ;; Ctrl + x = CUT                                                                              ;;
 (global-set-key (kbd "C-x") 'kill-region)                                                      ;;
 ;; Ctrl + z = UNDO                                                                             ;;
-(global-set-key (kbd "C-z") 'undo-only)                                                             ;;
+(global-set-key (kbd "C-z") 'undo-only)                                                        ;;
 ;; Ctrl + R = Redo                                                                             ;;
-(global-set-key (kbd "C-r") 'undo-redo)                                                             ;;
+(global-set-key (kbd "C-r") 'undo-redo)                                                        ;;
 ;; Ctrl + a = SELECT ALL                                                                       ;;
 (global-set-key (kbd "C-a") 'mark-whole-buffer)                                                ;;
 ;; Ctrl + o = Open A File                                                                      ;;
@@ -80,6 +80,8 @@
 (global-set-key (kbd "C-<tab>") 'other-window)                                                 ;;
 ;; Ctrl + q = kill the current buffer                                                          ;;
 (global-set-key (kbd "C-q") 'kill-this-buffer)                                                 ;;
+;; ESC = Now ESC does it's job                                                                 ;;
+(define-key key-translation-map (kbd "ESC") (kbd "C-g"))                                       ;;
 ;;---------------------------------------------------------------------------------------------;;
 ;;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Some Hacks ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~;;
 ;; Scroll Down Touchpad Fix                                                                    ;;
@@ -99,3 +101,17 @@
   (treesit-auto-add-to-auto-mode-alist 'all)                                                   ;;
   (global-treesit-auto-mode))                                                                  ;;
 ;;---------------------------------------------------------------------------------------------;;
+;;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Vertico ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~;;
+(straight-use-package 'vertico)
+(use-package vertico
+  ;;:custom
+  ;;(vertico-cycle t)
+  :init
+  (vertico-mode))		 
+;;---------------------------------------------------------------------------------------------;;
+
+;; Enable auto-revert-mode to automatically reload files when they change
+(global-auto-revert-mode t)
+;;(setq auto-revert-use-notify nil)
+;; Optionally, display messages in the echo area when a buffer is reverted
+;;(setq auto-revert-verbose t)
