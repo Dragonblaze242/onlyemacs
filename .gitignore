@@ -1,1 +1,6 @@
 .emacs.d/auto-save-list
+.emacs.d/eln-cache
+.emacs.d/straight
+.emacs.d/tree-sitter
+.emacs.d/history
+.emacs.d/places
