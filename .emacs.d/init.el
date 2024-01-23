@@ -113,3 +113,14 @@
   :init                                                                                        ;;
   (vertico-mode))                                                                              ;;
 ;;---------------------------------------------------------------------------------------------;;
+;;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Corfu ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~;;
+(straight-use-package 'corfu)                                                                  ;; 
+(use-package corfu                                                                             ;;
+  :custom                                                                                      ;;
+  (corfu-cycle t)                 ; Allows cycling through candidates                          ;;
+  (corfu-auto t)                  ; Enable auto completion                                     ;;
+  (corfu-auto-prefix 2)           ; 2 keys for popup                                           ;;
+  (corfu-auto-delay 0.0)          ; No delay                                                   ;;
+  :init                                                                                        ;;
+  (global-corfu-mode))                                                                         ;;
+;;---------------------------------------------------------------------------------------------;;
