@@ -1,13 +1,17 @@
 ;;---------------------------------------------------------------------------------------------;;
 ;;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Disable Menubar & Toolbar ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~;;
-(menu-bar-mode -1)									       ;;
-(tool-bar-mode -1)									       ;;
+(menu-bar-mode -1)                                                                             ;;
+(tool-bar-mode -1)                                                                             ;;
 ;;---------------------------------------------------------------------------------------------;;
 ;;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Disable Startup Screen	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~;;
-(setq inhibit-startup-screen t)								       ;;
+(setq inhibit-startup-screen t)                                                                ;;
+;;---------------------------------------------------------------------------------------------;;
+;;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Match Pairings ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~;;
+(electric-pair-mode t)                                                                         ;;
+(show-paren-mode t)                                                                            ;;
 ;;---------------------------------------------------------------------------------------------;;
 ;;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Display Line Numbers In Every Buffer ~~~~~~~~~~~~~~~~~~~~~~~~~;;
-(global-display-line-numbers-mode 1)							       ;;
+(global-display-line-numbers-mode 1)                                                           ;;
 ;;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Put Column NumberS In Display ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~;;
 (setq column-number-mode t)                                                                    ;;
 ;;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Delete Selected Text When Pasting ~~~~~~~~~~~~~~~~~~~~~~~~~~~~;;
@@ -16,25 +20,25 @@
 (setq scroll-step 1)                                                                           ;;
 ;;---------------------------------------------------------------------------------------------;;
 ;;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Stop Creating Backup Files ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~;;
-(setq make-backup-files nil)								       ;;
+(setq make-backup-files nil)                                                                   ;;
 ;;---------------------------------------------------------------------------------------------;;
 ;;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ MELPA Packages	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~;;
-(require 'package)									       ;;
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))		       ;;
+(require 'package)                                                                             ;;
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))                     ;;
 ;;---------------------------------------------------------------------------------------------;;
 ;;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Straight Package Manager ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~;;
-(defvar bootstrap-version)								       ;;
-(let ((bootstrap-file									       ;;
+(defvar bootstrap-version)                                                                     ;;
+(let ((bootstrap-file                                                                          ;;
       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))       ;;
-      (bootstrap-version 5))								       ;;
-  (unless (file-exists-p bootstrap-file)						       ;;
-    (with-current-buffer								       ;;
-        (url-retrieve-synchronously							       ;;
-        "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"	       ;;
-        'silent 'inhibit-cookies)							       ;;
-      (goto-char (point-max))								       ;;
-      (eval-print-last-sexp)))								       ;;
-  (load bootstrap-file nil 'nomessage))							       ;;
+      (bootstrap-version 5))                                                                   ;;
+  (unless (file-exists-p bootstrap-file)                                                       ;;
+    (with-current-buffer                                                                       ;;
+        (url-retrieve-synchronously                                                            ;;
+        "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"            ;;
+        'silent 'inhibit-cookies)                                                              ;;
+      (goto-char (point-max))                                                                  ;;
+      (eval-print-last-sexp)))                                                                 ;;
+  (load bootstrap-file nil 'nomessage))                                                        ;;
 ;;---------------------------------------------------------------------------------------------;;
 ;;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Enable Use Package Option ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~;;
 (straight-use-package 'use-package)                                                            ;;
@@ -43,9 +47,9 @@
   :straight t)                                                                                 ;;
 ;;---------------------------------------------------------------------------------------------;;
 ;;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Theme & Fonts ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~;;
-(straight-use-package 'gruvbox-theme)							       ;;
-(load-theme 'gruvbox-dark-hard t)							       ;;
-(set-frame-font "Cascadia Code 10" nil t)						       ;;
+(straight-use-package 'gruvbox-theme)                                                          ;;
+(load-theme 'gruvbox-dark-hard t)                                                              ;;
+(set-frame-font "Cascadia Code 10" nil t)                                                      ;;
 ;;---------------------------------------------------------------------------------------------;;
 ;;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Custom Keymaps ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~;;
 ;; Ctrl + s = SAVE                                                                             ;;
@@ -102,16 +106,10 @@
   (global-treesit-auto-mode))                                                                  ;;
 ;;---------------------------------------------------------------------------------------------;;
 ;;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Vertico ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~;;
-(straight-use-package 'vertico)
-(use-package vertico
-  ;;:custom
-  ;;(vertico-cycle t)
-  :init
-  (vertico-mode))		 
+(straight-use-package 'vertico)                                                                ;;
+(use-package vertico                                                                           ;;
+  :custom                                                                                      ;;
+  (vertico-cycle t)                                                                            ;;
+  :init                                                                                        ;;
+  (vertico-mode))                                                                              ;;
 ;;---------------------------------------------------------------------------------------------;;
-
-;; Enable auto-revert-mode to automatically reload files when they change
-(global-auto-revert-mode t)
-;;(setq auto-revert-use-notify nil)
-;; Optionally, display messages in the echo area when a buffer is reverted
-;;(setq auto-revert-verbose t)
