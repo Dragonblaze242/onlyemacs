@@ -1,5 +1,5 @@
 # Ignore everything:
 *
 # Except init.el
-!.emacs.d/init.el
+!init.el
 # Anything Else?
